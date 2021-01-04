@@ -1,0 +1,32 @@
+
+Question 1
+
+In the Binary Search algorithm, it is suggested to calculate the mid as
+beg + (end - beg) / 2 instead of (beg + end) / 2. Why is it so?
+
+Answer 1
+
+Because the risk of overflow may occur in case of (beg + end)/2 Which then means you get a result that is less than beg or larger than end.
+So instead of this,we can write beg + (end - beg) / 2. This is only a single extra operation to make the algorithm more robust and accurate.
+Writing beg + (end - beg) / 2 will not have intermediate data larger than end. So it's safer.
+
+Question 2
+
+Write the algorithm/function for Ternary Search.
+
+Answer 2
+
+Ternary search is a divide and conquer algorithm that can be used to find an element in an array. In this algorithm, we divide the given array into three parts and determine which has the key (searched element). We can divide the array into three parts by taking mid1 and mid2 which can be calculated as shown below. Initially, l and r will be equal to 0 and n-1 respectively, where n is the length of the array. 
+
+    mid1 = l + (r-l)/3 
+    mid2 = r – (r-l)/3 
+
+Array needs to be sorted to perform ternary search on it.
+
+Steps to perform Ternary Search: 
+
+    (i) First, we compare the key with the element at mid1. If found equal, we return mid1.
+    (ii) If not, then we compare the key with the element at mid2. If found equal, we return mid2.
+    (iii) If not, then we check whether the key is less than the element at mid1. If yes, then recur to the first part.
+    (iv) If not, then we check whether the key is greater than the element at mid2. If yes, then recur to the third part.
+    (v) If not, then we recur to the second (middle) part.
